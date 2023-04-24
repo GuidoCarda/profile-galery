@@ -33,8 +33,6 @@ This will start the development server on `http://localhost:3000`, where you can
 
 Once the development server is running, you can navigate to `http://localhost:3000` to view the profile gallery page. The page will display the user's profile image, full name and location, posts, followers and following numbers, and a photo gallery.
 
-You can click on a photo in the gallery to view a larger version of the photo. You can also use the search bar to search for specific photos by keyword.
-
 ## Contributing
 
 If you would like to contribute to this project, feel free to submit a pull request. Please make sure to follow the project's code style and guidelines.
