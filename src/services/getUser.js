@@ -21,12 +21,10 @@ export const getUser = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const random = Math.random(0.5);
-      if (random > 0.5) {
+      if (random > 0.9) {
         return reject({ error: "something went wrong" });
       }
       return resolve(user);
     }, 3000);
-
-    // setTimeout(() => resolve(user), 3000);
   });
 };

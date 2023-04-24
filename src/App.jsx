@@ -1,6 +1,7 @@
 import "./App.css";
 import { getUser } from "./services/getUser";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import ProfileHeader from "./components/ProfileHeader";
 import ImagesGrid from "./components/ImagesGrid";
@@ -26,18 +27,7 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  if (error) {
-    return (
-      <div className="Error">
-        <div>
-          <h2>Ups, {error.error}</h2>{" "}
-          <button className="Error-btn" onClick={handleRefetch}>
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
+  if (error) return <ErrorPage error={error} onClick={handleRefetch} />;
 
   return (
     <>
@@ -46,6 +36,24 @@ function App() {
     </>
   );
 }
+
+const ErrorPage = ({ error, onClick }) => {
+  return (
+    <div className="Error">
+      <div>
+        <h2>Ups, {error.error}</h2>{" "}
+        <button className="Error-btn" onClick={onClick}>
+          Retry
+        </button>
+      </div>
+    </div>
+  );
+};
+
+ErrorPage.propTypes = {
+  error: PropTypes.object,
+  onClick: PropTypes.func,
+};
 
 const ProfileHeaderSkeleton = () => {
   return (
